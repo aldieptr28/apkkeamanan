@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengukur Risiko Keamanan Online</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link ke Naff.js (Alternatif: bisa gunakan Bootstrap atau library lain) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/naff/0.0.1/naff.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Pengukur Risiko Keamanan Online</h1>
+        <nav>
+            <ul id="main-nav">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
+                <li><a href="securityAssessment.html">Penilaian Keamanan</a></li>
+                <li><a href="phishingSimulator.html">Simulasi Phishing</a></li>
+                <li><a href="dataLeakChecker.html">Pemindai Kebocoran Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Selamat Datang di Pengukur Risiko Keamanan Online</h2>
+            <p>Dengan alat ini, Anda dapat memeriksa keamanan online Anda melalui berbagai fitur:</p>
+            <ul>
+                <li><a href="passwordManager.html" class="btn-link">Manajemen Kata Sandi</a> - Buat dan kelola kata
+                    sandi yang aman.</li>
+                <li><a href="securityAssessment.html" class="btn-link">Penilaian Keamanan</a> - Evaluasi tingkat
+                    keamanan online Anda.</li>
+                <li><a href="phishingSimulator.html" class="btn-link">Simulasi Phishing</a> - Uji kemampuan Anda dalam
+                    mengenali serangan phishing.</li>
+                <li><a href="dataLeakChecker.html" class="btn-link">Pemindai Kebocoran Data</a> - Periksa apakah
+                    informasi pribadi Anda telah bocor.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        Dibuat Oleh Aldi Putra Pratama
+    </footer>
+
+    <script>
+        // Menambahkan efek transisi halus dengan Naff.js untuk navigasi antar halaman
+        Naff.init({
+            duration: 500, // Durasi transisi dalam milidetik
+            timingFunction: 'ease', // Fungsi waktu untuk transisi
+            classActive: 'active', // Kelas CSS untuk link aktif
+        });
+
+        // Menangani navigasi agar halaman tetap terhubung
+        const navLinks = document.querySelectorAll('#main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const href = this.getAttribute('href');
+                Naff.load(href, 'main');
+            });
+        });
+    </script>
+</body>
+
+</html>

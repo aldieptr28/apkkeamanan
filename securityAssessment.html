@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penilaian Keamanan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Penilaian Keamanan Online</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
+                <li><a href="securityAssessment.html" class="active">Penilaian Keamanan</a></li>
+                <li><a href="phishingSimulator.html">Simulasi Phishing</a></li>
+                <li><a href="dataLeakChecker.html">Pemindai Kebocoran Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="assessment-intro" class="card">
+            <h2>Pengenalan Penilaian Keamanan</h2>
+            <p>Penilaian ini membantu Anda mengevaluasi tingkat keamanan online Anda berdasarkan beberapa faktor
+                penting, seperti pengaturan privasi, penggunaan autentikasi dua faktor, dan kebiasaan online lainnya.
+            </p>
+            <button class="btn-primary" onclick="startAssessment()">Mulai Penilaian</button>
+        </section>
+
+        <section id="security-questions" class="card" style="display:none;">
+            <h2>Jawab Pertanyaan Berikut</h2>
+            <form id="assessment-form">
+                <div class="form-group">
+                    <label for="question-1">1. Apakah akun media sosial Anda diatur ke privat?</label>
+                    <select id="question-1" required>
+                        <option value="" disabled selected>Pilih jawaban</option>
+                        <option value="yes">Ya</option>
+                        <option value="no">Tidak</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-2">2. Apakah Anda menggunakan autentikasi dua faktor untuk akun
+                        penting?</label>
+                    <select id="question-2" required>
+                        <option value="" disabled selected>Pilih jawaban</option>
+                        <option value="yes">Ya</option>
+                        <option value="no">Tidak</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-3">3. Apakah Anda menghindari mengklik tautan mencurigakan di email atau
+                        pesan?</label>
+                    <select id="question-3" required>
+                        <option value="" disabled selected>Pilih jawaban</option>
+                        <option value="yes">Ya</option>
+                        <option value="no">Tidak</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-4">4. Apakah Anda menggunakan VPN saat mengakses Wi-Fi publik?</label>
+                    <select id="question-4" required>
+                        <option value="" disabled selected>Pilih jawaban</option>
+                        <option value="yes">Ya</option>
+                        <option value="no">Tidak</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-5">5. Apakah Anda secara rutin memperbarui perangkat lunak Anda?</label>
+                    <select id="question-5" required>
+                        <option value="" disabled selected>Pilih jawaban</option>
+                        <option value="yes">Ya</option>
+                        <option value="no">Tidak</option>
+                    </select>
+                </div>
+
+                <button class="btn-success" type="submit">Lihat Hasil Penilaian</button>
+            </form>
+        </section>
+
+        <section id="assessment-result" class="card" style="display:none;">
+            <h2>Hasil Penilaian Keamanan Anda</h2>
+            <p id="result-text"></p>
+            <p id="suggestions-text"></p>
+            <button class="btn-primary" onclick="restartAssessment()">Ulangi Penilaian</button>
+        </section>
+    </main>
+
+    <footer>
+        Dibuat Oleh Aldi Putra Pratama
+    </footer>
+
+    <script src="securityAssessment.js"></script>
+</body>
+
+</html>

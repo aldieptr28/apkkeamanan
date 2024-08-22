@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Phishing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Simulasi Phishing</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
+                <li><a href="securityAssessment.html">Penilaian Keamanan</a></li>
+                <li><a href="phishingSimulator.html" class="active">Simulasi Phishing</a></li>
+                <li><a href="dataLeakChecker.html">Pemindai Kebocoran Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="phishing-intro" class="card">
+            <h2>Pengenalan Simulasi Phishing</h2>
+            <p>Simulasi ini akan menguji seberapa baik Anda dapat mengenali serangan phishing. Anda akan diberikan
+                beberapa skenario, dan Anda harus menentukan apakah skenario tersebut aman atau mencurigakan.</p>
+            <button class="btn-primary" onclick="startSimulation()">Mulai Simulasi</button>
+        </section>
+
+        <section id="phishing-scenario" class="card" style="display:none;">
+            <h2>Skenario Phishing</h2>
+            <p id="scenario-text"></p>
+            <div class="form-group">
+                <button class="btn-danger" onclick="submitResponse('phishing')">Ini adalah Phishing</button>
+                <button class="btn-success" onclick="submitResponse('safe')">Ini Aman</button>
+            </div>
+            <p id="response-feedback" class="result-text"></p>
+        </section>
+
+        <section id="phishing-result" class="card" style="display:none;">
+            <h2>Hasil Simulasi</h2>
+            <p id="result-text"></p>
+            <button class="btn-primary" onclick="restartSimulation()">Coba Lagi</button>
+        </section>
+    </main>
+
+    <footer>
+        Dibuat Oleh Aldi Putra Pratama
+    </footer>
+
+    <script src="phishingSimulator.js"></script>
+</body>
+
+</html>

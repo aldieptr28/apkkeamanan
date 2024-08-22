@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemindai Kebocoran Data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Pemindai Kebocoran Data</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
+                <li><a href="securityAssessment.html">Penilaian Keamanan</a></li>
+                <li><a href="phishingSimulator.html">Simulasi Phishing</a></li>
+                <li><a href="dataLeakChecker.html" class="active">Pemindai Kebocoran Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="leak-checker-intro" class="card">
+            <h2>Pemeriksaan Kebocoran Data</h2>
+            <p>Periksa apakah alamat email Anda telah terlibat dalam kebocoran data yang diketahui. Masukkan alamat
+                email Anda di bawah ini untuk mulai memeriksa.</p>
+            <div class="form-group">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" placeholder="Masukkan email Anda" required>
+            </div>
+            <button class="btn-primary" onclick="checkDataLeak()">Cek Kebocoran Data</button>
+            <p id="leak-result" class="result-text"></p>
+        </section>
+
+        <section id="leak-details" class="card" style="display:none;">
+            <h2>Detail Kebocoran Data</h2>
+            <div id="breach-details"></div>
+            <button class="btn-primary" onclick="restartLeakCheck()">Periksa Email Lain</button>
+        </section>
+    </main>
+
+    <footer>
+        Dibuat Oleh Aldi Putra Pratama
+    </footer>
+
+    <script src="dataLeakChecker.js"></script>
+</body>
+
+</html>
