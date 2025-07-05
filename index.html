@@ -4,115 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengukur Risiko Keamanan Online</title>
+    <title>Pemindai Kebocoran Data</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/naff/0.0.1/naff.min.js"></script>
-    <link rel="icon" href="https://example.com/favicon.ico">
 </head>
 
 <body>
     <header>
-        <div class="container">
-            <h1>Pengukur Risiko Keamanan Online</h1>
-            <nav>
-                <ul id="main-nav">
-                    <li><a href="index.html" class="active">Beranda</a></li>
-                    <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
-                    <li><a href="securityAssessment.html">Penilaian Keamanan</a></li>
-                    <li><a href="phishingSimulator.html">Simulasi Phishing</a></li>
-                    <li><a href="dataLeakChecker.html">Pemindai Kebocoran Data</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Pemindai Kebocoran Data</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
+                <li><a href="securityAssessment.html">Penilaian Keamanan</a></li>
+                <li><a href="phishingSimulator.html">Simulasi Phishing</a></li>
+                <li><a href="dataLeakChecker.html" class="active">Pemindai Kebocoran Data</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-text">
-                    <h2>Selamat Datang di Platform Keamanan Akun Anda!</h2>
-                    <p>Keamanan online sangat penting. Gunakan alat kami untuk mengukur dan meningkatkan perlindungan akun Anda. Ikuti langkah-langkah mudah untuk mengamankan data pribadi Anda dan menghindari ancaman online.</p>
-                    <a href="securityAssessment.html" class="btn-main">Mulai Penilaian Keamanan</a>
-                </div>
-                <div class="hero-image">
-                    <img src="https://via.placeholder.com/500" alt="Keamanan Online">
-                </div>
+        <section id="leak-checker-intro" class="card">
+            <h2>Pemeriksaan Kebocoran Data</h2>
+            <p>Periksa apakah alamat email Anda telah terlibat dalam kebocoran data yang diketahui. Masukkan alamat
+                email Anda di bawah ini untuk mulai memeriksa.</p>
+            <div class="form-group">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" placeholder="Masukkan email Anda" required>
             </div>
+            <button class="btn-primary" onclick="checkDataLeak()">Cek Kebocoran Data</button>
+            <p id="leak-result" class="result-text"></p>
         </section>
 
-        <section class="features">
-            <div class="container">
-                <h2 class="section-title">Fitur Utama Kami</h2>
-                <div class="feature-cards">
-                    <div class="feature-card">
-                        <i class="fas fa-key"></i>
-                        <h3>Manajemen Kata Sandi</h3>
-                        <p>Kelola kata sandi Anda dengan mudah dan pastikan semuanya aman dan unik.</p>
-                        <a href="passwordManager.html" class="btn-link">Kelola Sekarang</a>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Penilaian Keamanan</h3>
-                        <p>Evaluasi tingkat keamanan akun Anda dengan penilaian menyeluruh.</p>
-                        <a href="securityAssessment.html" class="btn-link">Mulai Penilaian</a>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-bug"></i>
-                        <h3>Simulasi Phishing</h3>
-                        <p>Uji kemampuan Anda dalam mengenali serangan phishing dengan simulasi interaktif.</p>
-                        <a href="phishingSimulator.html" class="btn-link">Coba Sekarang</a>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-search"></i>
-                        <h3>Pemindai Kebocoran Data</h3>
-                        <p>Periksa apakah informasi pribadi Anda telah bocor atau disalahgunakan.</p>
-                        <a href="dataLeakChecker.html" class="btn-link">Periksa Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about">
-            <div class="container">
-                <h2 class="section-title">Tentang Kami</h2>
-                <p>Kami adalah platform edukasi yang bertujuan untuk meningkatkan kesadaran keamanan siber di kalangan pengguna internet. Alat kami dirancang untuk membantu Anda mengelola akun dengan lebih aman dan menghindari risiko ancaman online yang terus berkembang.</p>
-            </div>
-        </section>
-
-        <section class="cta">
-            <div class="container">
-                <h2>Jangan Tunggu Sampai Terlambat!</h2>
-                <p>Mulailah melindungi akun Anda dengan menggunakan alat-alat canggih kami sekarang juga.</p>
-                <a href="securityAssessment.html" class="btn-main">Mulai Penilaian Keamanan</a>
-            </div>
+        <section id="leak-details" class="card" style="display:none;">
+            <h2>Detail Kebocoran Data</h2>
+            <div id="breach-details"></div>
+            <button class="btn-primary" onclick="restartLeakCheck()">Periksa Email Lain</button>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2025 Pengukur Risiko Keamanan Online | Dibuat oleh Aldi Putra Pratama</p>
-        </div>
+        Dibuat Oleh Aldi Putra Pratama
     </footer>
 
-    <script>
-        // Menambahkan efek transisi halus dengan Naff.js untuk navigasi antar halaman
-        Naff.init({
-            duration: 500, // Durasi transisi dalam milidetik
-            timingFunction: 'ease', // Fungsi waktu untuk transisi
-            classActive: 'active', // Kelas CSS untuk link aktif
-        });
-
-        // Menangani navigasi agar halaman tetap terhubung
-        const navLinks = document.querySelectorAll('#main-nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                const href = this.getAttribute('href');
-                Naff.load(href, 'main');
-            });
-        });
-    </script>
+    <script src="dataLeakChecker.js"></script>
 </body>
 
 </html>
