@@ -1,44 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemindai Kebocoran Data</title>
+    <title>Pengukur Risiko Keamanan Online</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Link ke Naff.js (Alternatif: bisa gunakan Bootstrap atau library lain) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/naff/0.0.1/naff.min.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>Pemindai Kebocoran Data</h1>
+        <h1>Pengukur Risiko Keamanan Online</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
+            <ul id="main-nav">
+                <li><a href="index.html" class="active">Beranda</a></li>
                 <li><a href="passwordManager.html">Manajemen Kata Sandi</a></li>
                 <li><a href="securityAssessment.html">Penilaian Keamanan</a></li>
                 <li><a href="phishingSimulator.html">Simulasi Phishing</a></li>
-                <li><a href="dataLeakChecker.html" class="active">Pemindai Kebocoran Data</a></li>
+                <li><a href="dataLeakChecker.html">Pemindai Kebocoran Data</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="leak-checker-intro" class="card">
-            <h2>Pemeriksaan Kebocoran Data</h2>
-            <p>Periksa apakah alamat email Anda telah terlibat dalam kebocoran data yang diketahui. Masukkan alamat
-                email Anda di bawah ini untuk mulai memeriksa.</p>
-            <div class="form-group">
-                <label for="email">Alamat Email:</label>
-                <input type="email" id="email" placeholder="Masukkan email Anda" required>
-            </div>
-            <button class="btn-primary" onclick="checkDataLeak()">Cek Kebocoran Data</button>
-            <p id="leak-result" class="result-text"></p>
-        </section>
-
-        <section id="leak-details" class="card" style="display:none;">
-            <h2>Detail Kebocoran Data</h2>
-            <div id="breach-details"></div>
-            <button class="btn-primary" onclick="restartLeakCheck()">Periksa Email Lain</button>
+        <section class="card">
+            <h2>Selamat Datang di Pengukur Risiko Keamanan Online</h2>
+            <p>Dengan alat ini, Anda dapat memeriksa keamanan online Anda melalui berbagai fitur:</p>
+            <ul>
+                <li><a href="passwordManager.html" class="btn-link">Manajemen Kata Sandi</a> - Buat dan kelola kata
+                    sandi yang aman.</li>
+                <li><a href="securityAssessment.html" class="btn-link">Penilaian Keamanan</a> - Evaluasi tingkat
+                    keamanan online Anda.</li>
+                <li><a href="phishingSimulator.html" class="btn-link">Simulasi Phishing</a> - Uji kemampuan Anda dalam
+                    mengenali serangan phishing.</li>
+                <li><a href="dataLeakChecker.html" class="btn-link">Pemindai Kebocoran Data</a> - Periksa apakah
+                    informasi pribadi Anda telah bocor.</li>
+            </ul>
         </section>
     </main>
 
@@ -46,7 +46,24 @@
         Dibuat Oleh Aldi Putra Pratama
     </footer>
 
-    <script src="dataLeakChecker.js"></script>
+    <script>
+        // Menambahkan efek transisi halus dengan Naff.js untuk navigasi antar halaman
+        Naff.init({
+            duration: 500, // Durasi transisi dalam milidetik
+            timingFunction: 'ease', // Fungsi waktu untuk transisi
+            classActive: 'active', // Kelas CSS untuk link aktif
+        });
+
+        // Menangani navigasi agar halaman tetap terhubung
+        const navLinks = document.querySelectorAll('#main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const href = this.getAttribute('href');
+                Naff.load(href, 'main');
+            });
+        });
+    </script>
 </body>
 
 </html>
